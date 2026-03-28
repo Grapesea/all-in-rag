@@ -1,4 +1,5 @@
 from unstructured.partition.auto import partition
+# from unstructured.partition.pdf import partition_pdf
 
 # PDF文件路径
 pdf_path = "../../data/C2/pdf/rag.pdf"
@@ -6,7 +7,8 @@ pdf_path = "../../data/C2/pdf/rag.pdf"
 # 使用Unstructured加载并解析PDF文档
 elements = partition(
     filename=pdf_path,
-    content_type="application/pdf"
+    content_type="application/pdf",
+    strategy="ocr_only"
 )
 
 # 打印解析结果
@@ -23,3 +25,4 @@ for i, element in enumerate(elements, 1):
     print(f"Element {i} ({element.category}):")
     print(element)
     print("=" * 60)
+
